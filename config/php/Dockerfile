@@ -54,5 +54,8 @@ RUN if [ ! -z ${USER_ID} ]; then usermod -u ${USER_ID} www-data; fi
 RUN if [ ! -z ${USER_ID} ]; then groupmod -g ${USER_ID} www-data; fi
 
 # set default user and working directory
-USER www-data
 WORKDIR /var/www/project
+
+RUN chown -R www-data:www-data /var/www/project
+
+USER www-data
